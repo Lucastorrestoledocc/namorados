@@ -1,0 +1,207 @@
+/* Importação de Fontes e Variáveis */
+:root {
+    --bg-color: #1a1a2e;
+    --primary-text-color: #e0e0e0;
+    --accent-color: #f72585;
+    --secondary-accent-color: #7209b7;
+    --card-bg: #16213e;
+    --heading-font: 'Dancing Script', cursive;
+    --body-font: 'Montserrat', sans-serif;
+}
+
+body {
+    font-family: var(--body-font);
+    background-color: var(--bg-color);
+    color: var(--primary-text-color);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* Seção Hero */
+.hero-section {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.hero-content {
+    z-index: 2;
+    padding: 20px;
+}
+
+.main-title {
+    font-family: var(--heading-font);
+    font-size: 5rem;
+    color: #fff;
+    text-shadow: 0 0 10px var(--accent-color), 0 0 20px var(--accent-color);
+    margin: 0;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    color: var(--primary-text-color);
+    margin-top: 10px;
+}
+
+#contador {
+    font-size: 1.2rem;
+    margin-top: 30px;
+    background: rgba(0,0,0,0.3);
+    padding: 10px 20px;
+    border-radius: 50px;
+    display: inline-block;
+    border: 1px solid var(--accent-color);
+}
+
+/* Seções de Conteúdo */
+.content-section, .timeline-section, .reasons-section, .vouchers-section {
+    padding: 60px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+h2 {
+    font-family: var(--heading-font);
+    font-size: 3.5rem;
+    color: var(--accent-color);
+    margin-bottom: 40px;
+}
+
+/* Efeito de digitação da carta */
+.letter {
+    font-size: 1.2rem;
+    white-space: pre-wrap; /* Mantém as quebras de linha */
+    text-align: center;
+    min-height: 100px;
+    border-right: .15em solid var(--accent-color); /* Cursor piscando */
+    animation: blink-caret .75s step-end infinite;
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: var(--accent-color); }
+}
+
+/* Linha do Tempo */
+.timeline {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+.timeline-item {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+.timeline-item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+.timeline-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    border: 5px solid var(--secondary-accent-color);
+    flex-shrink: 0;
+}
+.timeline-content {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: left;
+}
+.timeline-content h3 {
+    color: var(--accent-color);
+    margin-top: 0;
+}
+
+
+/* Cartões de "Razões Para Amar" */
+.reasons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+.reason-card {
+    background: var(--card-bg);
+    border-radius: 10px;
+    height: 250px;
+    cursor: pointer;
+    perspective: 1000px;
+    background-image: url('fundo_cartao.png'); /* Crie uma imagem de fundo bonita para o cartão */
+    background-size: cover;
+}
+.reason-text {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    font-size: 1.2rem;
+    text-align: center;
+    color: #fff;
+    background: rgba(0,0,0,0.6);
+    border-radius: 10px;
+    transition: opacity 0.5s;
+    opacity: 0;
+}
+.reason-card:hover .reason-text {
+    opacity: 1;
+}
+
+/* Vouchers */
+.vouchers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+.voucher {
+    background: linear-gradient(135deg, var(--secondary-accent-color), var(--accent-color));
+    padding: 30px;
+    border-radius: 15px;
+    border-left: 10px dashed var(--bg-color);
+}
+.voucher h3 {
+    margin-top: 0;
+    color: #fff;
+}
+
+/* Spotify e Footer */
+.spotify-playlist {
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    background-color: #111;
+    margin-top: 50px;
+}
+
+/* Animação de Fade-in */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
